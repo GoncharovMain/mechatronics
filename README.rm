@@ -1,0 +1,77 @@
+g++ (GCC) 11.1.0
+
+start in matrix_calc/FUNC:
+    start with shell:
+        > sh run_oop.sh
+    or terminal:
+        > g++ matrix.cpp -o matrix
+        >./matrix
+
+
+start in matrix_calc/OOP:
+
+    start with shell:
+        > sh run_func.sh
+    or terminal:
+        > g++ test_matrix.cpp -o test_matrix
+        > ./test_matrix
+
+description:
+    c - constant
+    M - matrix
+    V - vector
+    L - left
+    R - right
+
+============================|===================================================|=======================================================================
+    C function              |  signature                                        |      C++ OOP release
+kinematic_test.cpp----------|---------------------------------------------------|-----------------------------------------------------------------------
+    main()                  |      *                                            |      int
+    PrintMatrix3N(...)      |      k, M                                         |      void Matrix2D::print(k);
+    PrintMatrix4N(...)      |      k, M                                         |      void Matrix2D::print(k);
+    PrintMatrix4(...)       |      M                                            |      void Matrix2D::print();
+    PrintVectInt(...)       |      N, Vector                                    |      void Vector::print(int N)
+    PrintVectDou(...)       |      N, Vector                                    |      void Vector::print(int N)
+kinematic_model.h-----------|---------------------------------------------------|-----------------------------------------------------------------------
+    DMatrixAry(...)         |     N, beta, D                                    |      int Mechatronic::DMatrixAry
+    DAijMatrixAry(...)      |     N,       D, Aij, DAij                         |      int Mechatronic::DAijMatrixAry
+    MultiMatrix(...)        |     ML, MR, M                                     |      Matrix2D operator*(L, R)
+    DiAokMatrix(...)        |   k, i,    Aok, Aij, DAij, DiAok                  |      int Mechatronic::DiAokMatrix
+    DiiAokMatrix(...)       |   k, i,    Aok, Aij, DAij, D, DiiAok              |      int Mechatronic::DiiAokMatrix
+    DijAokMatrix(...)       |   k, i, j, Aok, Aij, DAij, D, DijAok              |      int Mechatronic::DijAokMatrix
+    MultiConstMatrix(...)   |   ML, _const, MR                                  |      Matrix2D operator*(double constant, Matrix2D matrix)
+    MultiVectMatrix(...)    |   M, VectL, VectR                                 |      Matrix2D operator*(Vector L, Vector R)
+    lin_speed(...)          | k, l_coord, dq,      Aok, Aij,    DAij, l_speed   |      int Mechatronic::lin_speed
+    lin_acceler(...)        | k, l_coord, dq, ddq, Aok, Aij, D, DAij, l_acceler |      int Mechatronic::lin_acceler
+    angul_speed(...)        | k, beta,    dq,      Aok,               a_speed   |      int Mechatronic::angul_speed
+    angul_acceler(...)      | k, beta,    dq, ddq, Aok, Aij,    DAij, a_acceler |      int Mechatronic::angul_acceler
+geometric_model.h-----------|---------------------------------------------------|-----------------------------------------------------------------------
+    Nmax 10                 |      c                                            |      #define
+    Aii_Matrix(...)         |    N, Lvect, Mii, Aii_                            |      int Mechatronic::Aii_Matrix
+    BetaVect(...)           |    N, Pvect, beta                                 |      int Mechatronic::BetaVect
+    Ai_jMatrix(...)         |    N, beta, qj,             Ai_j                  |      int Mechatronic::Ai_jMatrix
+    MultiMatrix(...)        |    kL, ML, kR, MR, k, M                           |      int Mechatronic::MultiMatrix
+    AijMatrix(...)          |    N,             Aii_,     Ai_j, Aij             |      int Mechatronic::AijMatrix
+    AoiMatrix(...)          |    N,                             Aij, Aoi        |      int Mechatronic::AoiMatrix
+============================|===================================================|=======================================================================
+
+
+OOP:
+    test_matrix.cpp
+        declarations.h
+            ArrayMatrix.cpp
+            Matrix2D.cpp
+            Vector.cpp
+            operators.cpp
+            Mechatronic.cpp
+            test_functions.cpp
+
+FUNC
+    kinematic_test_aclual.cpp
+        kinematic_model.h
+        geometric_model.h
+
+notes:
+    Aii_MatrixAry =>  Aii_Matrix ?
+    AoiMatrix(N, Aij, Aok) == AokMatrix(N, Aij, Aok) ?
+
