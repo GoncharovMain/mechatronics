@@ -97,8 +97,8 @@ class ArrayMatrix
 private:
     int count;
     std::vector<C> array;
-public:
     ArrayMatrix(int count);
+public:
     ArrayMatrix(int count, int row);
     ArrayMatrix(int count, int row, int column);
 

@@ -89,8 +89,8 @@ template<typename T>
 template <size_t N, size_t M>
 Matrix2D<T>::Matrix2D(T (&array)[N][M])
 {
-    this->row = sizeof(array) / sizeof(array[0]);
-    this->column = sizeof(array[0]) / sizeof(array[0][0]);
+    this->row = N;
+    this->column = M;
 
     matrix = new T *[this->row];
 

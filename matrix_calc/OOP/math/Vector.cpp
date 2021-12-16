@@ -39,7 +39,7 @@ Vector<T>::Vector(int row)
 template<typename T>
 template <size_t N>
 Vector<T>::Vector(T (&array)[N])
-    :Vector::Vector(sizeof(array) / sizeof(array[0]))
+    :Vector::Vector(N)
 {
     this->vector = array;
 }
