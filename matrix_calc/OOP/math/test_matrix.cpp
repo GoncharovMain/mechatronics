@@ -159,7 +159,7 @@ int test_kinematic()
 int main()
 {
 
-    test_array_matrix();
+    //test_array_matrix();
     test();
     //test_kinematic();
 

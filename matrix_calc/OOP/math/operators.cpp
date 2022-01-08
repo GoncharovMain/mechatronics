@@ -19,6 +19,9 @@ Matrix2D<T> operator*(Matrix2D<T> matrix, const double constant)
 template <typename T>
 Matrix2D<T> operator+(Matrix2D<T> L, Matrix2D<T> R)
 {
+    if (L.get_row() != R.get_row() || L.get_column() != R.get_column())
+        throw std::string { "Matrix size mismatch." };
+
     Matrix2D<T> result = Matrix2D<T>(L.get_row(), L.get_column());
 
     for (int i = 0; i < L.get_row(); i++)

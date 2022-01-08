@@ -150,4 +150,41 @@ void test()
     B.print();
 #pragma endregion
 
+
+    Vector<int> vect_init_list = { 1, 4, 3, 4 };
+    Vector<double> l_coord = {1.0, 1.0, 1.0, 1.0};
+
+    vect_init_list.print("Vector init with init_list");
+    l_coord.print("Vector init with init_list");
+
+
+    Matrix2D<int> matr_init_list = {
+        {5, 2, 4},
+        {7, 6, 2},
+        {1, 1, 0}
+    };
+
+    matr_init_list.print("Matrix init with init_list");
+
+    // generate throw error
+    Matrix2D<int> a = {
+        {1, 2, 3},
+        {5, 3, 2}
+    };
+    Matrix2D<int> b = {
+        {1, 2},
+        {5, 8}
+    };
+
+    try
+    {
+        Matrix2D<int> c = a + b;
+        cout << "try" << endl;
+    }
+    catch(const std::string& err)
+    {
+        cout << "Error: " << err << endl;
+    }
+
+
 }

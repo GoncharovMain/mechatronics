@@ -45,6 +45,10 @@ public:
 
         return *this;
     }
+    Matrix2D<T>& operator=(initializer_list<initializer_list<T>> ilist)
+    {
+        return Matrix2D<T>(ilist);
+    }
 
     T *operator[](int x)
     {
@@ -72,9 +76,6 @@ public:
     void print(std::string name);
     Vector copy();
 
-    template<size_t N>
-    int angul_acceler();
-
     Vector<T>& operator=(Vector<T> equal_vector)
     {
         this->row = equal_vector.row;
@@ -84,6 +85,11 @@ public:
 
         return *this;
     }
+    Vector<T>& operator=(std::initializer_list<T> ilist)
+    {
+        return Vector<T>(ilist);
+    }
+
     T &operator[](int x)
     {
         return vector[x];
